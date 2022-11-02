@@ -2,16 +2,28 @@
 {% load staticfiles %}
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="{% static "css/mystyle.css" %}" />
   </head>
   <body>
-<h1> Here you will see user information.</h1>
-<img src="{% static "images/sunset.jpg" %}" alt="sunset">
-{{insert_me}}
+    <h1>Here is the information of Available users.</h1>
+    <div>
+      <ol>
+        {% for data in user_data %}
+        <li>User info:</li>
+        <ul>
+          <li>First Name: {{data.First_Name}}</li>
+          <li>Last Name: {{data.Last_Name}}</li>
+          <li>Email: {{data.Email}}</li>
+        </ul>
+        {% endfor %}
+      </ol>
+    </div>
+
+    {{insert_me}}
   </body>
 </html>
